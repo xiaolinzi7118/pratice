@@ -1,0 +1,29 @@
+# 后端
+backend/target/
+backend/.classpath
+backend/.project
+backend/.settings/
+backend/.idea/
+*.iml
+*.log
+todolist.db
+todolist.db-journal
+
+# 前端
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/*.log
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+
