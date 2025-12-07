@@ -16,7 +16,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { House, List } from '@element-plus/icons-vue'
+import { House, List, Iphone, Bell } from '@element-plus/icons-vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -24,7 +24,9 @@ const router = useRouter()
 // 路由路径映射
 const routeMap = {
   '/home': { title: '首页', icon: House },
-  '/todos': { title: '待办事项', icon: List }
+  '/todos': { title: '待办事项', icon: List },
+  '/h5': { title: 'H5页面', icon: Iphone },
+  '/h5/flash-news': { title: '快讯', icon: Bell }
 }
 
 // 生成面包屑项
@@ -56,7 +58,11 @@ const breadcrumbItems = computed(() => {
       })
     } else {
       // 如果没有映射，使用路由meta中的title或路径名
-      const matchedRoute = route.matched.find(r => r.path === currentPath)
+      const matchedRoute = route.matched.find(r => {
+        // 处理动态路由匹配
+        const routePath = r.path.replace(/\/:.*$/, '')
+        return routePath === currentPath || r.path === currentPath
+      })
       items.push({
         title: matchedRoute?.meta?.title || path,
         path: currentPath,
@@ -71,7 +77,7 @@ const breadcrumbItems = computed(() => {
 
 <style scoped>
 .breadcrumb-container {
-  margin-bottom: 20px;
+  margin-bottom: 0;
   padding: 0 4px;
 }
 </style>

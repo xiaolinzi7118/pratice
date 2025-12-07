@@ -20,6 +20,16 @@
             <el-icon><List /></el-icon>
             <span>待办事项</span>
           </el-menu-item>
+          <el-sub-menu index="/h5">
+            <template #title>
+              <el-icon><Iphone /></el-icon>
+              <span>H5页面</span>
+            </template>
+            <el-menu-item index="/h5/flash-news">
+              <el-icon><Bell /></el-icon>
+              <span>快讯</span>
+            </el-menu-item>
+          </el-sub-menu>
         </el-menu>
       </el-aside>
       <el-container>
@@ -57,7 +67,7 @@
   import { useRoute, useRouter } from 'vue-router'
   import { useAuthStore } from '../stores/auth'
   import { ElMessageBox } from 'element-plus'
-  import { List, User, ArrowDown, House } from '@element-plus/icons-vue'
+  import { List, User, ArrowDown, House, Iphone, Bell } from '@element-plus/icons-vue'
 import Breadcrumb from '../components/Breadcrumb.vue'
   
   const route = useRoute()
@@ -162,7 +172,7 @@ import Breadcrumb from '../components/Breadcrumb.vue'
   
   .breadcrumb-wrapper {
     background-color: #fff;
-    padding: 12px 20px;
+    padding: 8px 20px;
     border-bottom: 1px solid #e4e7ed;
   }
 

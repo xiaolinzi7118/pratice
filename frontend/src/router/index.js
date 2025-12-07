@@ -36,6 +36,19 @@ const router = createRouter({
               { title: '待办事项', path: '/todos' }
             ]
           }
+        },
+        {
+          path: 'h5/flash-news',
+          name: 'FlashNews',
+          component: () => import('../views/FlashNews.vue'),
+          meta: { 
+            title: '快讯',
+            breadcrumb: [
+              { title: '首页', path: '/home' },
+              { title: 'H5页面', path: '/h5' },
+              { title: '快讯', path: '/h5/flash-news' }
+            ]
+          }
         }
       ]
     }
